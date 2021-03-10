@@ -1,6 +1,7 @@
 import * as express from "express";
 import dbMovies from "../db/moviesQuery";
 
+
 const router = express.Router();
 
 router.get("/", async (req, res) => {
@@ -26,14 +27,13 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
   const makeFilm = req.body;
-  
-
+  console.log(makeFilm)
   try {
     const dataMovie = await dbMovies.post(
-      makeFilm.dbMovies.name,
-      makeFilm.dbMovies.date,
-      makeFilm.dbMovies.role
-    );
+      makeFilm.name,
+      makeFilm.date,
+      makeFilm.role
+      );
     res.json(dataMovie);
   } catch (e) {
     res.status(500).json(e);
@@ -41,10 +41,17 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id?", async (req, res) => {
+  const updateFilm = req.body;
+  console.log(updateFilm)
   try {
-    let data = await dbMovies.put(req.params.id, req.body.name);
-    console.log(data);
+    const data = await dbMovies.put(
+      updateFilm.name,
+      updateFilm.date,
+      req.params.id,
+      updateFilm.role,
+      );
+       console.log("ormgormg")
     res.json(data);
   } catch (e) {
     console.log(e);

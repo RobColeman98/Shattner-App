@@ -9,7 +9,7 @@ const post = async (name, date, role ) => Query("insert into movies(name, date, 
 [name, date, role])
 
 // update movies
-const put = async (id, name) => Query("UPDATE movies SET name = ? WHERE id = ?,", [id, name]);
+const put = async (id, name, date, role) => Query("UPDATE movies SET name = ?, date = ?, role = ? WHERE id = ?,", [id, name, role, date]);
 
 // delete movie
 const deleteMovie =  async (id) => Query("DELETE FROM movies WHERE id = ?", [id])
@@ -19,5 +19,6 @@ export default{
     get,
     post, 
     put, 
-    deleteMovie
+    deleteMovie,
+   
 }
