@@ -1,12 +1,7 @@
 import * as React from "react";
 
-const App = () => {
+export default function App () {
     return(
-        <h1>rgin</h1>
+        <h1>irngiurn</h1>
     )
 }
-
-
-
-
-export default App;

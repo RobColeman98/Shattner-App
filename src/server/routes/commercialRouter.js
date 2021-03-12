@@ -60,7 +60,7 @@ router.get("/", async (req, res) => {
   router.delete("/:id", async (req, res) => {
     try {
       let id = Number(req.params.id);
-      await dbCommercials.deleteMovie(id);
+      await dbCommercials.deleteCommercials(id);
       res.json({ msg: `Commercial ${id} deleted` });
     } catch (e) {
       console.log(e);
