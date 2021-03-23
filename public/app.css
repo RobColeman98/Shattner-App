@@ -1,0 +1,14 @@
+
+
+h1{
+   
+    color: blue;
+}
+
+#Shatner{
+    width: 600px;
+    height: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
